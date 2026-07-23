@@ -32,16 +32,6 @@ const ENTRY_IDS = {
   contact: 'entry.73604618',
 } as const
 
-// The Category question on the Google Form only accepts these values.
-// Any site category outside this set is submitted as "Other".
-const GOOGLE_FORM_CATEGORIES = [
-  'DeFi & Trading',
-  'Community & Social',
-  'Research & Data',
-  'Automation',
-  'Other',
-]
-
 export function SubmitForm() {
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
@@ -50,14 +40,9 @@ export function SubmitForm() {
     e.preventDefault()
     const data = new FormData(e.currentTarget)
 
-    const category = String(data.get('category') ?? '')
-    const mappedCategory = GOOGLE_FORM_CATEGORIES.includes(category)
-      ? category
-      : 'Other'
-
     const body = new URLSearchParams()
     body.append(ENTRY_IDS.agentName, String(data.get('agentName') ?? ''))
-    body.append(ENTRY_IDS.category, mappedCategory)
+    body.append(ENTRY_IDS.category, String(data.get('category') ?? ''))
     body.append(ENTRY_IDS.framework, String(data.get('framework') ?? ''))
     body.append(ENTRY_IDS.description, String(data.get('description') ?? ''))
     body.append(ENTRY_IDS.url, String(data.get('url') ?? ''))
