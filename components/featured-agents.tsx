@@ -1,35 +1,8 @@
-import { ArrowUpRight, LineChart, Users, Telescope, CheckCircle2 } from 'lucide-react'
+import Link from 'next/link'
+import { ArrowUpRight, CheckCircle2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { agents } from '@/lib/agents'
 
-const agents = [
-  {
-    name: 'Momentum Trader',
-    tagline: 'Autonomous on-chain execution',
-    description:
-      'Automated dual-direction trading agent inspired by tools like Trojan and BonkBot. Monitors Solana memecoins and major pairs, executes momentum entries, and manages risk with dynamic stop-losses.',
-    icon: LineChart,
-    category: 'DeFi',
-    tags: ['Trading', 'Solana', 'Automation'],
-  },
-  {
-    name: 'Community Ops',
-    tagline: 'Always-on community ops',
-    description:
-      'AI community manager inspired by tools used by projects like Jito and Tensor. Handles scheduled GM posts, engagement tracking, auto-moderation, and reply assistance across Discord and X.',
-    icon: Users,
-    category: 'Social',
-    tags: ['Community', 'Social', 'Growth'],
-  },
-  {
-    name: 'Alpha Scout',
-    tagline: 'Signal from the noise',
-    description:
-      'On-chain and social intelligence agent in the style of Nansen and Arkham. Aggregates Solana news, wallet activity, and Twitter signals into short, actionable research briefs.',
-    icon: Telescope,
-    category: 'Research',
-    tags: ['Research', 'Analytics', 'Solana'],
-  },
-]
 export function FeaturedAgents() {
   return (
     <section id="agents" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
@@ -72,7 +45,7 @@ export function FeaturedAgents() {
               </h3>
               <p className="text-sm font-medium text-primary/90">{agent.tagline}</p>
               <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
-                {agent.description}
+                {agent.description[0]}
               </p>
 
               <div className="mt-5 flex flex-wrap gap-2">
@@ -90,9 +63,9 @@ export function FeaturedAgents() {
                 variant="outline"
                 className="mt-6 w-full"
                 nativeButton={false}
-                render={<a href="#deploy" />}
+                render={<Link href={`/agents/${agent.slug}`} />}
               >
-                Deploy on Hatcher
+                View agent
                 <ArrowUpRight className="h-4 w-4" />
               </Button>
             </article>
