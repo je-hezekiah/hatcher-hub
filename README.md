@@ -26,6 +26,7 @@ This project is being developed in collaboration with the Hatcher Labs team.
 MVP landing page is live.
 
 ## Contact
-- x: (@Rbornn1)
+- Name: Joe-Thomas Prince
+- X: (https://x.com/mac_slimme)
 - GitHub: [je-hezekiah](https://github.com/je-hezekiah)
 - Email: rebornonx@gmail.com
