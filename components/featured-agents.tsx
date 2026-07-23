@@ -3,34 +3,33 @@ import { Button } from '@/components/ui/button'
 
 const agents = [
   {
-    name: 'Trading Agent',
+    name: 'Momentum Trader',
     tagline: 'Autonomous on-chain execution',
     description:
-      'Monitors Solana markets and executes strategy-driven swaps with risk guardrails and real-time position tracking.',
+      'Automated dual-direction trading agent inspired by tools like Trojan and BonkBot. Monitors Solana memecoins and major pairs, executes momentum entries, and manages risk with dynamic stop-losses.',
     icon: LineChart,
     category: 'DeFi',
-    tags: ['Jupiter', 'Realtime', 'Risk-aware'],
+    tags: ['Trading', 'Solana', 'Automation'],
   },
   {
-    name: 'Community Agent',
+    name: 'Community Ops',
     tagline: 'Always-on community ops',
     description:
-      'Moderates, onboards, and answers questions across Discord and Telegram with token-gated actions and analytics.',
+      'AI community manager inspired by tools used by projects like Jito and Tensor. Handles scheduled GM posts, engagement tracking, auto-moderation, and reply assistance across Discord and X.',
     icon: Users,
     category: 'Social',
-    tags: ['Discord', 'Telegram', 'Token-gated'],
+    tags: ['Community', 'Social', 'Growth'],
   },
   {
-    name: 'Research Scout',
+    name: 'Alpha Scout',
     tagline: 'Signal from the noise',
     description:
-      'Aggregates on-chain data, docs, and news into concise briefs so your team can act on Solana trends faster.',
+      'On-chain and social intelligence agent in the style of Nansen and Arkham. Aggregates Solana news, wallet activity, and Twitter signals into short, actionable research briefs.',
     icon: Telescope,
     category: 'Research',
-    tags: ['On-chain', 'Summaries', 'Alerts'],
+    tags: ['Research', 'Analytics', 'Solana'],
   },
 ]
-
 export function FeaturedAgents() {
   return (
     <section id="agents" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
