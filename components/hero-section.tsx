@@ -50,7 +50,7 @@ export function HeroSection() {
             variant="outline"
             className="h-11 px-6 text-sm"
             nativeButton={false}
-            render={<a href="#submit" />}
+            render={<a href="/submit" />}
           >
             Submit an Agent
           </Button>
