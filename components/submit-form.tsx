@@ -18,12 +18,67 @@ const categories = [
 const inputClass =
   'h-10 w-full rounded-lg border border-input bg-background px-3 text-sm outline-none placeholder:text-muted-foreground/70 focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/40'
 
+// Google Form response endpoint (from https://forms.gle/LyY5UrKZnRZ825S16)
+const GOOGLE_FORM_ACTION =
+  'https://docs.google.com/forms/d/e/1FAIpQLSfbEIdHlUOkhQotg8z-BMYoxsWVD-3QALP5yAjpk8aGawoY1Q/formResponse'
+
+// Maps each form field to its Google Form entry ID
+const ENTRY_IDS = {
+  agentName: 'entry.1500326162',
+  category: 'entry.430037924',
+  framework: 'entry.1274725885',
+  description: 'entry.1702318038',
+  url: 'entry.576209773',
+  contact: 'entry.73604618',
+} as const
+
+// The Category question on the Google Form only accepts these values.
+// Any site category outside this set is submitted as "Other".
+const GOOGLE_FORM_CATEGORIES = [
+  'DeFi & Trading',
+  'Community & Social',
+  'Research & Data',
+  'Automation',
+  'Other',
+]
+
 export function SubmitForm() {
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    setSubmitted(true)
+    const data = new FormData(e.currentTarget)
+
+    const category = String(data.get('category') ?? '')
+    const mappedCategory = GOOGLE_FORM_CATEGORIES.includes(category)
+      ? category
+      : 'Other'
+
+    const body = new URLSearchParams()
+    body.append(ENTRY_IDS.agentName, String(data.get('agentName') ?? ''))
+    body.append(ENTRY_IDS.category, mappedCategory)
+    body.append(ENTRY_IDS.framework, String(data.get('framework') ?? ''))
+    body.append(ENTRY_IDS.description, String(data.get('description') ?? ''))
+    body.append(ENTRY_IDS.url, String(data.get('url') ?? ''))
+    body.append(ENTRY_IDS.contact, String(data.get('contact') ?? ''))
+
+    setSubmitting(true)
+    try {
+      // Google Forms does not send CORS headers, so we submit opaquely.
+      // The request still reaches Google and records the response.
+      await fetch(GOOGLE_FORM_ACTION, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body.toString(),
+      })
+    } catch (err) {
+      console.log('[v0] Google Form submission error:', err)
+    } finally {
+      setSubmitting(false)
+      setSubmitted(true)
+    }
   }
 
   if (submitted) {
@@ -140,9 +195,9 @@ export function SubmitForm() {
           />
         </Field>
 
-        <Button type="submit" className="h-11 w-full">
-          Submit Agent
-          <Send className="h-4 w-4" />
+        <Button type="submit" className="h-11 w-full" disabled={submitting}>
+          {submitting ? 'Submitting...' : 'Submit Agent'}
+          {!submitting && <Send className="h-4 w-4" />}
         </Button>
       </form>
     </div>
