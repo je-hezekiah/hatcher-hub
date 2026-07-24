@@ -1,19 +1,19 @@
 # Hatcher Hub
 
-A curated directory for Hatcher-native AI agents built on OpenClaw and Hermes.
+An independent, community-built directory for Hatcher-native AI agents built on OpenClaw and Hermes.
 
 ## Live Demo
 [https://hatcher-hub.vercel.app](https://hatcher-hub.vercel.app)
 
 ## Overview
-Hatcher Hub is a focused discovery layer for the Hatcher ecosystem. It helps users find and deploy quality AI agents while giving builders a simple way to list their work.
+Hatcher Hub is a focused discovery layer for the Hatcher ecosystem. It helps users find example agent templates and gives builders a simple way to submit their work for review.
 
-This project is being developed in collaboration with the Hatcher Labs team.
+This is an independent community project and is **not operated by Hatcher Labs**.
 
 ## Current Scope (MVP)
-- Curated directory of Hatcher-native agents
+- Curated example agent templates
 - Clear categories
-- Featured agents with Deploy on Hatcher CTAs
+- Individual agent pages
 - Simple builder submission flow
 - Clean, dark-themed interface
 
@@ -23,7 +23,7 @@ This project is being developed in collaboration with the Hatcher Labs team.
 - Vercel
 
 ## Status
-MVP landing page is live.
+MVP landing page is live. Current agents are demo/example templates only.
 
 ## Contact
 - Name: Joe-Thomas Prince
