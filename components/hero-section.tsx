@@ -35,9 +35,9 @@ export function HeroSection() {
         </h1>
 
         <p className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-          A directory for Hatcher-native AI agents in the Solana ecosystem.
-          Explore example templates, see how agents are built, and submit your
-          own to the community.
+          An independent, community-built directory for Hatcher-native AI agents
+          in the Solana ecosystem. Explore example templates, see how agents are
+          built, and submit your own to the community.
         </p>
 
         <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
