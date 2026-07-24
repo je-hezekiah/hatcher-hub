@@ -42,8 +42,8 @@ export function PageNavbar() {
           <Button variant="ghost" size="lg" nativeButton={false} render={<Link href="/#agents" />}>
             Explore
           </Button>
-          <Button size="lg" nativeButton={false} render={<Link href="/#deploy" />}>
-            Deploy on Hatcher
+          <Button size="lg" nativeButton={false} render={<a href="https://hatcher.host/create" target="_blank" rel="noopener noreferrer" />}>
+            Create on Hatcher
           </Button>
         </div>
 
@@ -71,8 +71,8 @@ export function PageNavbar() {
                 {link.label}
               </Link>
             ))}
-            <Button className="mt-2 w-full" nativeButton={false} render={<Link href="/#deploy" onClick={() => setOpen(false)} />}>
-              Deploy on Hatcher
+            <Button className="mt-2 w-full" nativeButton={false} render={<a href="https://hatcher.host/create" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} />}>
+              Create on Hatcher
             </Button>
           </div>
         </div>
