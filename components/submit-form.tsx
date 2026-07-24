@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Check, Send, ChevronDown } from 'lucide-react'
+import { Check, Send, ChevronDown, AlertCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const categories = [
@@ -18,11 +18,9 @@ const categories = [
 const inputClass =
   'h-10 w-full rounded-lg border border-input bg-background px-3 text-sm outline-none placeholder:text-muted-foreground/70 focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/40'
 
-// Google Form response endpoint (from https://forms.gle/LyY5UrKZnRZ825S16)
 const GOOGLE_FORM_ACTION =
   'https://docs.google.com/forms/d/e/1FAIpQLSfbEIdHlUOkhQotg8z-BMYoxsWVD-3QALP5yAjpk8aGawoY1Q/formResponse'
 
-// Maps each form field to its Google Form entry ID
 const ENTRY_IDS = {
   agentName: 'entry.1500326162',
   category: 'entry.430037924',
@@ -35,12 +33,15 @@ const ENTRY_IDS = {
 export function SubmitForm() {
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState(false)
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    const data = new FormData(e.currentTarget)
+    setError(false)
 
+    const data = new FormData(e.currentTarget)
     const body = new URLSearchParams()
+
     body.append(ENTRY_IDS.agentName, String(data.get('agentName') ?? ''))
     body.append(ENTRY_IDS.category, String(data.get('category') ?? ''))
     body.append(ENTRY_IDS.framework, String(data.get('framework') ?? ''))
@@ -49,20 +50,20 @@ export function SubmitForm() {
     body.append(ENTRY_IDS.contact, String(data.get('contact') ?? ''))
 
     setSubmitting(true)
+
     try {
-      // Google Forms does not send CORS headers, so we submit opaquely.
-      // The request still reaches Google and records the response.
       await fetch(GOOGLE_FORM_ACTION, {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: body.toString(),
       })
+      setSubmitted(true)
     } catch (err) {
-      console.log('[v0] Google Form submission error:', err)
+      console.error('Submission error:', err)
+      setError(true)
     } finally {
       setSubmitting(false)
-      setSubmitted(true)
     }
   }
 
@@ -75,9 +76,7 @@ export function SubmitForm() {
           </span>
           <h3 className="mt-4 text-lg font-semibold">Submission received</h3>
           <p className="mt-2 max-w-sm text-sm leading-relaxed text-muted-foreground">
-            Thanks for submitting your agent. Our team will manually review it
-            for quality and Hatcher compatibility, then reach out about
-            verification.
+            Thanks for submitting your agent. Submissions are manually reviewed. We will contact you if your agent is selected for listing.
           </p>
           <Button
             variant="outline"
@@ -180,10 +179,21 @@ export function SubmitForm() {
           />
         </Field>
 
+        {error && (
+          <div className="flex items-start gap-2 rounded-lg border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-400">
+            <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
+            <p>Something went wrong while submitting. Please try again.</p>
+          </div>
+        )}
+
         <Button type="submit" className="h-11 w-full" disabled={submitting}>
           {submitting ? 'Submitting...' : 'Submit Agent'}
           {!submitting && <Send className="h-4 w-4" />}
         </Button>
+
+        <p className="text-xs leading-relaxed text-muted-foreground">
+          By submitting, you agree that your contact details and agent information will be reviewed by the Hatcher Hub team. Submissions are stored via Google Forms and are not shared publicly without your consent.
+        </p>
       </form>
     </div>
   )
