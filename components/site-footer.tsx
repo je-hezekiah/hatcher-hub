@@ -14,7 +14,7 @@ export function SiteFooter() {
                 Hatcher<span className="text-primary">Hub</span>
               </span>
             </a>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
               An independent, community-built directory for Hatcher-native AI agents in the Solana ecosystem.
             </p>
             <p className="mt-2 max-w-xs text-xs text-muted-foreground/80">
@@ -25,7 +25,8 @@ export function SiteFooter() {
 
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-border/60 pt-6 sm:flex-row">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Hatcher Hub. Independent community project for the Hatcher ecosystem. Not operated by Hatcher Labs.
+            © {new Date().getFullYear()}Hatcher Hub · Independent community project · Not operated by Hatcher Labs
+          </p>
           </p>
         </div>
       </div>
