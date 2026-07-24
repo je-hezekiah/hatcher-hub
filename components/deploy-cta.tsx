@@ -15,18 +15,18 @@ export function DeployCta() {
         />
         <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium text-primary">
           <Zap className="h-3.5 w-3.5" />
-          One-click deployment
+          Build on Hatcher
         </span>
         <h2 className="mx-auto mt-6 max-w-2xl text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
-          Ready to ship your next agent?
+          Ready to build your next agent?
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-pretty leading-relaxed text-muted-foreground">
-          Deploy any Hatcher-native agent to the Solana ecosystem with built-in
-          monitoring, guardrails, and scaling — no infrastructure required.
+          Start from an example template and create your own Hatcher-native agent
+          for the Solana ecosystem.
         </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <Button size="lg" className="h-11 px-6 text-sm" nativeButton={false} render={<a href="#agents" />}>
-            Deploy on Hatcher
+          <Button size="lg" className="h-11 px-6 text-sm" nativeButton={false} render={<a href="https://hatcher.host/create" target="_blank" rel="noopener noreferrer" />}>
+            Create on Hatcher
             <ArrowRight className="h-4 w-4" />
           </Button>
           <Button

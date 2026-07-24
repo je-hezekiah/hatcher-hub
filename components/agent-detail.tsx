@@ -131,7 +131,7 @@ export function AgentDetail({ agent }: { agent: Agent }) {
           <h2 className="text-lg font-semibold tracking-tight">Example template</h2>
         </div>
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-          A starting point you can customize when deploying this agent on Hatcher.
+          A starting point you can customize when building your own agent on Hatcher.
         </p>
 
         <div className="mt-4 grid gap-4 lg:grid-cols-2">
@@ -159,15 +159,15 @@ export function AgentDetail({ agent }: { agent: Agent }) {
           }}
         />
         <h2 className="mx-auto max-w-xl text-balance text-2xl font-semibold tracking-tight sm:text-3xl">
-          Deploy {agent.name} on Hatcher
+          Create your own agent on Hatcher
         </h2>
         <p className="mx-auto mt-3 max-w-md text-pretty leading-relaxed text-muted-foreground">
-          Launch this agent with built-in monitoring, guardrails, and scaling —
-          no infrastructure required.
+          Use this template as a starting point and build your own Hatcher-native
+          agent for the Solana ecosystem.
         </p>
         <div className="mt-6 flex justify-center">
-          <Button size="lg" className="h-11 px-6 text-sm" nativeButton={false} render={<Link href="/#deploy" />}>
-            Deploy on Hatcher
+          <Button size="lg" className="h-11 px-6 text-sm" nativeButton={false} render={<a href="https://hatcher.host/create" target="_blank" rel="noopener noreferrer" />}>
+            Create on Hatcher
             <ArrowRight className="h-4 w-4" />
           </Button>
         </div>

@@ -63,15 +63,30 @@ export function FeaturedAgents() {
                 ))}
               </div>
 
-              <Button
-                variant="outline"
-                className="mt-6 w-full"
-                nativeButton={false}
-                render={<Link href={`/agents/${agent.slug}`} />}
-              >
-                View agent
-                <ArrowUpRight className="h-4 w-4" />
-              </Button>
+              <div className="mt-6 flex flex-col gap-2">
+                <Button
+                  variant="outline"
+                  className="w-full"
+                  nativeButton={false}
+                  render={<Link href={`/agents/${agent.slug}`} />}
+                >
+                  View details
+                </Button>
+                <Button
+                  className="w-full"
+                  nativeButton={false}
+                  render={
+                    <a
+                      href="https://hatcher.host/create"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    />
+                  }
+                >
+                  Create on Hatcher
+                  <ArrowUpRight className="h-4 w-4" />
+                </Button>
+              </div>
             </article>
           )
         })}

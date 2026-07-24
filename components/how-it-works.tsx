@@ -15,9 +15,9 @@ const steps = [
   },
   {
     icon: Rocket,
-    title: 'Deploy',
+    title: 'Build & Ship',
     description:
-      'Ship to the Solana ecosystem in minutes. Monitor performance and scale with one-click Hatcher deployment.',
+      'Create your agent on Hatcher and ship it to the Solana ecosystem, then monitor performance as it runs.',
   },
 ]
 
