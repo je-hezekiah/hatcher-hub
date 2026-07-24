@@ -1,25 +1,10 @@
 import { Hexagon } from 'lucide-react'
 
-const footerLinks = [
-  {
-    title: 'Directory',
-    links: ['Agents', 'Categories', 'Submit', 'Builders'],
-  },
-  {
-    title: 'Platform',
-    links: ['OpenClaw', 'Hermes', 'Deploy', 'Documentation'],
-  },
-  {
-    title: 'Company',
-    links: ['About', 'Blog', 'Careers', 'Contact'],
-  },
-]
-
 export function SiteFooter() {
   return (
     <footer className="border-t border-border/60">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
           <div>
             <a href="#top" className="flex items-center gap-2">
               <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/15 text-primary ring-1 ring-primary/30">
@@ -36,41 +21,12 @@ export function SiteFooter() {
               Not operated by Hatcher Labs.
             </p>
           </div>
-
-          {footerLinks.map((col) => (
-            <div key={col.title}>
-              <h3 className="text-sm font-semibold text-foreground">{col.title}</h3>
-              <ul className="mt-4 space-y-3">
-                {col.links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
         </div>
 
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-border/60 pt-6 sm:flex-row">
           <p className="text-xs text-muted-foreground">
             © {new Date().getFullYear()} Hatcher Hub. Independent community project for the Hatcher ecosystem. Not operated by Hatcher Labs.
           </p>
-          <div className="flex items-center gap-6">
-            <a href="#" className="text-xs text-muted-foreground transition-colors hover:text-foreground">
-              Privacy
-            </a>
-            <a href="#" className="text-xs text-muted-foreground transition-colors hover:text-foreground">
-              Terms
-            </a>
-            <a href="#" className="text-xs text-muted-foreground transition-colors hover:text-foreground">
-              Status
-            </a>
-          </div>
         </div>
       </div>
     </footer>
