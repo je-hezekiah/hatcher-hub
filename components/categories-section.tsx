@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Coins,
   MessagesSquare,
@@ -8,6 +10,7 @@ import {
   Bot,
   Wrench,
 } from 'lucide-react'
+import { useRouter, useSearchParams } from 'next/navigation'
 
 const categories = [
   { name: 'DeFi & Trading', icon: Coins },
@@ -21,11 +24,22 @@ const categories = [
 ]
 
 export function CategoriesSection() {
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  const activeCategory = searchParams.get('category')
+
+  function handleCategoryClick(name: string) {
+    const params = new URLSearchParams(searchParams.toString())
+    if (activeCategory === name) {
+      params.delete('category')
+    } else {
+      params.set('category', name)
+    }
+    router.push(`/?${params.toString()}#agents`, { scroll: false })
+  }
+
   return (
-    <section
-      id="categories"
-      className="border-y border-border/60 bg-card/40"
-    >
+    <section id="categories" className="border-y border-border/60 bg-card/40">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
         <div className="max-w-2xl">
           <p className="text-sm font-medium text-primary">Categories</p>
@@ -41,11 +55,17 @@ export function CategoriesSection() {
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {categories.map((cat) => {
             const Icon = cat.icon
+            const isActive = activeCategory === cat.name
+
             return (
-              <a
+              <button
                 key={cat.name}
-                href="#agents"
-                className="group flex flex-col gap-3 rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary/40"
+                onClick={() => handleCategoryClick(cat.name)}
+                className={`group flex flex-col gap-3 rounded-xl border p-5 text-left transition-colors ${
+                  isActive
+                    ? 'border-primary bg-primary/10'
+                    : 'border-border bg-card hover:border-primary/40'
+                }`}
               >
                 <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/12 text-primary ring-1 ring-primary/25">
                   <Icon className="h-5 w-5" />
@@ -55,7 +75,7 @@ export function CategoriesSection() {
                     {cat.name}
                   </h3>
                 </div>
-              </a>
+              </button>
             )
           })}
         </div>
