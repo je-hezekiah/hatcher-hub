@@ -3,7 +3,7 @@ import { SubmitForm } from '@/components/submit-form'
 
 const benefits = [
   'Reach builders and teams across the Solana ecosystem',
-  'Get a verified badge after a quick compatibility review',
+  'Share your agent as a template others can learn from',
   'Native OpenClaw & Hermes support out of the box',
 ]
 

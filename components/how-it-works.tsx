@@ -5,7 +5,7 @@ const steps = [
     icon: Search,
     title: 'Discover',
     description:
-      'Browse curated, vetted agents by category and capability. Every listing is reviewed for quality and Hatcher compatibility.',
+      'Browse agents by category and capability, and explore example templates to see how Hatcher-native agents are built.',
   },
   {
     icon: MousePointerClick,
