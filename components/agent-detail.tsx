@@ -35,12 +35,10 @@ export function AgentDetail({ agent }: { agent: Agent }) {
               <h1 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
                 {agent.name}
               </h1>
-              {agent.verified && (
-                <span className="inline-flex items-center gap-1 rounded-full border border-primary/30 bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary">
-                  <CheckCircle2 className="h-3.5 w-3.5" />
-                  Verified
-                </span>
-              )}
+              <span className="inline-flex items-center gap-1 rounded-full border border-primary/30 bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary">
+                <Sparkles className="h-3.5 w-3.5" />
+                Example Template
+              </span>
             </div>
             <p className="mt-1.5 text-pretty text-base font-medium text-primary/90">
               {agent.tagline}
@@ -83,6 +81,12 @@ export function AgentDetail({ agent }: { agent: Agent }) {
           </p>
         </div>
       </div>
+
+      {/* Demo notice */}
+      <p className="mt-6 rounded-xl border border-border bg-muted/40 px-4 py-3 text-sm leading-relaxed text-muted-foreground">
+        This is an example template for demonstration purposes only. It is not a
+        live, verified, or production-ready product.
+      </p>
 
       {/* Description */}
       <div className="mt-10">

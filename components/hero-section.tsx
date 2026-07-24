@@ -35,9 +35,9 @@ export function HeroSection() {
         </h1>
 
         <p className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-          A curated directory of production-ready agents for the Solana
-          ecosystem. Explore vetted MVPs, deploy in minutes, and ship your own
-          Hatcher-native agent to the community.
+          A directory for Hatcher-native AI agents in the Solana ecosystem.
+          Explore example templates, see how agents are built, and submit your
+          own to the community.
         </p>
 
         <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -56,22 +56,6 @@ export function HeroSection() {
           </Button>
         </div>
 
-        <dl className="mx-auto mt-16 grid max-w-2xl grid-cols-3 gap-4 border-t border-border/60 pt-8">
-          {[
-            { value: '120+', label: 'Curated Agents' },
-            { value: '8', label: 'Categories' },
-            { value: '40+', label: 'Verified Builders' },
-          ].map((stat) => (
-            <div key={stat.label} className="flex flex-col items-center">
-              <dt className="text-2xl font-semibold text-foreground sm:text-3xl">
-                {stat.value}
-              </dt>
-              <dd className="mt-1 text-xs text-muted-foreground sm:text-sm">
-                {stat.label}
-              </dd>
-            </div>
-          ))}
-        </dl>
       </div>
     </section>
   )

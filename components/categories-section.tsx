@@ -10,14 +10,14 @@ import {
 } from 'lucide-react'
 
 const categories = [
-  { name: 'DeFi & Trading', count: 32, icon: Coins },
-  { name: 'Community & Social', count: 24, icon: MessagesSquare },
-  { name: 'Research & Data', count: 18, icon: Telescope },
-  { name: 'Security & Audits', count: 12, icon: ShieldCheck },
-  { name: 'Gaming', count: 15, icon: Gamepad2 },
-  { name: 'NFT & Media', count: 21, icon: ImageIcon },
-  { name: 'Automation', count: 19, icon: Bot },
-  { name: 'Dev Tooling', count: 14, icon: Wrench },
+  { name: 'DeFi & Trading', icon: Coins },
+  { name: 'Community & Social', icon: MessagesSquare },
+  { name: 'Research & Data', icon: Telescope },
+  { name: 'Security & Audits', icon: ShieldCheck },
+  { name: 'Gaming', icon: Gamepad2 },
+  { name: 'NFT & Media', icon: ImageIcon },
+  { name: 'Automation', icon: Bot },
+  { name: 'Dev Tooling', icon: Wrench },
 ]
 
 export function CategoriesSection() {
@@ -54,9 +54,6 @@ export function CategoriesSection() {
                   <h3 className="text-sm font-semibold text-foreground">
                     {cat.name}
                   </h3>
-                  <p className="mt-0.5 text-xs text-muted-foreground">
-                    {cat.count} agents
-                  </p>
                 </div>
               </a>
             )

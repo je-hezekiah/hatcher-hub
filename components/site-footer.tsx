@@ -3,7 +3,7 @@ import { Hexagon } from 'lucide-react'
 const footerLinks = [
   {
     title: 'Directory',
-    links: ['Agents', 'Categories', 'Submit', 'Verified builders'],
+    links: ['Agents', 'Categories', 'Submit', 'Builders'],
   },
   {
     title: 'Platform',

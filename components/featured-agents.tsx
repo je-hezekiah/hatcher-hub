@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowUpRight, CheckCircle2 } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { agents } from '@/lib/agents'
 
@@ -8,10 +8,14 @@ export function FeaturedAgents() {
     <section id="agents" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
       <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
         <div>
-          <p className="text-sm font-medium text-primary">Featured</p>
+          <p className="text-sm font-medium text-primary">Examples</p>
           <h2 className="mt-2 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
-            Hand-picked agents ready to deploy
+            Example agent templates
           </h2>
+          <p className="mt-2 text-pretty text-sm leading-relaxed text-muted-foreground">
+            These are demo examples to illustrate what a Hatcher-native agent
+            can look like — not live or verified products.
+          </p>
         </div>
         <a
           href="#categories"
@@ -34,15 +38,15 @@ export function FeaturedAgents() {
                 <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/12 text-primary ring-1 ring-primary/25">
                   <Icon className="h-5 w-5" />
                 </span>
-                <span className="rounded-full border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground">
-                  {agent.category}
+                <span className="rounded-full border border-primary/30 bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary">
+                  Example Template
                 </span>
               </div>
 
-              <h3 className="mt-5 flex items-center gap-1.5 text-lg font-semibold">
-                {agent.name}
-                <CheckCircle2 className="h-4 w-4 text-primary" aria-label="Verified" />
-              </h3>
+              <h3 className="mt-5 text-lg font-semibold">{agent.name}</h3>
+              <span className="mt-1 inline-flex w-fit rounded-full border border-border px-2 py-0.5 text-xs font-medium text-muted-foreground">
+                {agent.category}
+              </span>
               <p className="text-sm font-medium text-primary/90">{agent.tagline}</p>
               <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
                 {agent.description[0]}
