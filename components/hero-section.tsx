@@ -30,7 +30,7 @@ export function HeroSection() {
         </span>
 
         <h1 className="mx-auto mt-6 max-w-3xl text-balance text-4xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-          Discover &amp; Deploy{' '}
+          Discover &amp; Create{' '}
           <span className="text-primary">Hatcher-Native</span> AI Agents
         </h1>
 
