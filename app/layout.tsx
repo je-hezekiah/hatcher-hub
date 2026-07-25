@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Hatcher Hub — Discover & Deploy Hatcher-Native AI Agents',
+  title: 'Hatcher Hub — Discover & Create Hatcher-Native AI Agents',
   description:
-    'A curated MVP directory for Hatcher-native AI agents built on OpenClaw and Hermes in the Solana ecosystem. Discover, deploy, and submit agents.',
+    'An independent community directory for Hatcher-native AI agents built on OpenClaw and Hermes in the Solana ecosystem. Discover example templates and create your own agents.',
   generator: 'v0.app',
 }
 
