@@ -27,6 +27,6 @@ MVP landing page is live. Current agents are demo/example templates only.
 
 ## Contact
 - Name: Joe-Thomas Prince
-- X: (https://x.com/mac_slimme)
+- X: (https://x.com/rbornn1)
 - GitHub: [je-hezekiah](https://github.com/je-hezekiah)
 - Email: rebornonx@gmail.com
